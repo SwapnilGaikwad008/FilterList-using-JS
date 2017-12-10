@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+     -->
+    <title>My Contact</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="center-align">
+            My Contacts
+        </h1>
+
+        <input type="text" id="filterInput" placeholder="Search names...">
+
+        <ul class="collection with-header" id="names">
+            <li class="collection-header">
+                <h5>A</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Abhi</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Adi</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Adam</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Ajit</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Akshay</a>
+            </li>
+
+
+            <!--its for B -->
+            <li class="collection-header">
+                    <h5>B</h5>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Bob</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Bobby</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Bittu</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Bubbly</a>
+                </li>
+                <li class="collection-item">
+                    <a href="#">Bhavesh</a>
+                </li>
+
+          <!-- Its for C-->
+                <li class="collection-header">
+                        <h5>C</h5>
+                    </li>
+                    <li class="collection-item">
+                        <a href="#">Carry</a>
+                    </li>
+                    <li class="collection-item">
+                        <a href="#">Coffee</a>
+                    </li>
+                    <li class="collection-item">
+                        <a href="#">Cat</a>
+                    </li>
+                    <li class="collection-item">
+                        <a href="#">corny</a>
+                    </li>
+                    <li class="collection-item">
+                        <a href="#">cartoon</a>
+                    </li>
+        </ul>
+
+    </div>
+
+    <script>
+     //Get Input Element   
+    let filterInput = document.getElementById('filterInput');
+    //Add EventListener
+    filterInput.addEventListener('keyup',filterNames);
+
+    function filterNames(){
+        //Get value of input
+        let filterValue = document.getElementById('filterInput').value.toUpperCase();
+
+        //Get names ul
+        let ul = document.getElementById('names');
+        //get li from ul
+        let li = ul.querySelectorAll('li.collection-item');
+
+        //loop through collection item li //to get current value I put [0]
+        for(let i = 0;i< li.length;i++){
+            let a = li[i].getElementsByTagName('a')[0];
+            //if matched
+            if(a.innerHTML.toUpperCase().indexOf(filterValue) > -1){
+                li[i].style.display = '';
+            }else{
+                li[i].style.display = 'none';
+
+            }
+
+        }
+
+        }
+    </script>
+
+</body>
+
+</html>
